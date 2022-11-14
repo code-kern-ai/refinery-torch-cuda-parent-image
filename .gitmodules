@@ -1,0 +1,3 @@
+[submodule "submodules/parent-images"]
+	path = submodules/parent-images
+	url = https://github.com/code-kern-ai/refinery-submodule-parent-images.git
