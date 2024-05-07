@@ -15,16 +15,16 @@ steps:
   - name: build and publish
     image: plugins/docker
     settings:
-      registry: registry.dev.onetask.ai
+      registry: registry.dev.kern.ai
       username:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      repo: "registry.dev.onetask.ai/code-kern-ai/refinery-parent-images"
+      repo: "registry.dev.kern.ai/code-kern-ai/refinery-parent-images"
       tags: ["${DRONE_COMMIT_SHA}-torch-cuda", "${DRONE_COMMIT_BRANCH}-torch-cuda"]
       cache_from:
-        - "registry.dev.onetask.ai/code-kern-ai/refinery-parent-images:dev-torch-cuda"
-        - "registry.dev.onetask.ai/code-kern-ai/refinery-parent-images:${DRONE_COMMIT_BRANCH}-torch-cuda"
+        - "registry.dev.kern.ai/code-kern-ai/refinery-parent-images:dev-torch-cuda"
+        - "registry.dev.kern.ai/code-kern-ai/refinery-parent-images:${DRONE_COMMIT_BRANCH}-torch-cuda"
 
 trigger:
   event:
