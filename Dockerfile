@@ -7,10 +7,10 @@ RUN apt-get update && \
 
 RUN add-apt-repository ppa:deadsnakes/ppa && \
     apt-get install --no-install-recommends --no-install-suggests -y \
-    python3.9 python3.9-distutils && \
+    python3.11 python3.11-distutils && \
     rm -rf /var/lib/apt/lists/*
 
-RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.9
+RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
 
 COPY submodules/parent-images/requirements/torch-cuda-requirements.txt .
 
