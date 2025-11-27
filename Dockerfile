@@ -1,11 +1,13 @@
-FROM nvidia/cuda:11.4.3-base-ubuntu20.04
+FROM nvidia/cuda:13.0.2-base-ubuntu22.04
+
+ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
     apt-get install --no-install-recommends --no-install-suggests -y \
     curl software-properties-common && \
     rm -rf /var/lib/apt/lists/*
 
-RUN add-apt-repository ppa:deadsnakes/ppa && \
+RUN add-apt-repository ppa:deadsnakes/ppa && apt-get update && \
     apt-get install --no-install-recommends --no-install-suggests -y \
     python3.11 python3.11-distutils && \
     rm -rf /var/lib/apt/lists/*
