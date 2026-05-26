@@ -10,10 +10,6 @@ ENV PATH="${VENV_PATH}/bin:${PATH}"
 
 RUN python -m venv "${VENV_PATH}"
 
-RUN apt-get update && \
-    apt-get install --no-install-recommends -y build-essential && \
-    rm -rf /var/lib/apt/lists/*
-
 COPY submodules/parent-images/requirements/torch-cuda-requirements.txt .
 
 RUN pip install --no-cache-dir -r torch-cuda-requirements.txt
