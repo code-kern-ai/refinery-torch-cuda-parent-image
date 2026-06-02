@@ -13,10 +13,11 @@ steps:
       - 'git config --global url."https://github.com/".insteadOf git@github.com:'
       - "git submodule update --recursive"
   - name: build and publish
-    image: plugins/docker:21.2.8-linux-amd64
+    image: plugins/docker:21
     depends_on:
       - submodules
     settings:
+      platform: linux/amd64
       registry: registry.dev.kern.ai
       username:
         from_secret: docker_username
@@ -53,10 +54,11 @@ steps:
       - 'git config --global url."https://github.com/".insteadOf git@github.com:'
       - "git submodule update --recursive"
   - name: build and publish
-    image: plugins/docker:21.2.8-linux-amd64
+    image: plugins/docker:21
     depends_on:
       - submodules
     settings:
+      platform: linux/amd64
       username:
         from_secret: dockerhub_username
       password:
